@@ -4,7 +4,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 
 def user_auth(username):
-    scope = "user-read-currently-playing"
+    scope = "user-read-currently-playing streaming app-remote-control user-modify-playback-state"
     client_id = ""
     client_secret = ""
     redirect_url = ""
@@ -12,11 +12,8 @@ def user_auth(username):
     try:
         creds = open("client.creds", "r")
         client_id = creds.readline().strip()
-        print(client_id)
         client_secret = creds.readline().strip()
-        print(client_secret)
         redirect_url = creds.readline().strip()
-        print(redirect_url)
     except:
         print("Reading from credentials file was unsuccessful")
         sys.exit()
